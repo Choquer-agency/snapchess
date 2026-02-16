@@ -6,6 +6,8 @@ import { validate } from '../middleware/validate';
 import { AnalysisService } from '../services/AnalysisService';
 import { UsageService } from '../services/UsageService';
 import { CVService } from '../services/CVService';
+import { VisionCVService } from '../services/VisionCVService';
+import { env } from '../config/env';
 
 const router = Router();
 const upload = multer({
@@ -72,7 +74,9 @@ router.post(
         return res.status(400).json({ success: false, error: 'No image provided' });
       }
 
-      const result = await CVService.detectPosition(req.file.buffer);
+      const result = env.ANTHROPIC_API_KEY
+        ? await VisionCVService.detectPosition(req.file.buffer, req.file.mimetype)
+        : await CVService.detectPosition(req.file.buffer);
 
       return res.json({
         success: true,
