@@ -1,0 +1,6 @@
+node_modules
+apps/api
+docker-compose.yml
+*.md
+.env
+.env.*
