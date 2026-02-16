@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.cachedBadge {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.opening {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: rgba(78, 205, 196, 0.08);
+  border: 1px solid rgba(78, 205, 196, 0.15);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+}
+
+.openingLabel {
+  font-weight: 600;
+  color: var(--success);
+}
+
+.tactics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.tacticTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: rgba(233, 69, 96, 0.12);
+  color: var(--accent);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+}
+
+.explanations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.explanationCard {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+
+.moveName {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-right: 0.375rem;
+}
+
+.explanationText {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}

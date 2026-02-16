@@ -1,0 +1,67 @@
+.form {
+  width: 100%;
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.625rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.analyzeBtn {
+  padding: 0.625rem 1.25rem;
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.analyzeBtn:hover {
+  background: var(--accent-hover);
+}
+
+.stopBtn {
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.flipBtn {
+  padding: 0.625rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  font-size: 1.125rem;
+  transition: background 0.2s;
+}
+
+.flipBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.error {
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-top: 0.375rem;
+}

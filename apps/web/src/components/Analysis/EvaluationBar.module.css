@@ -1,0 +1,52 @@
+.evalBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min(480px, 90vw);
+}
+
+.bar {
+  width: 28px;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blackSection {
+  background: var(--eval-black);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: height 0.5s ease;
+  min-height: 2%;
+}
+
+.whiteSection {
+  background: var(--eval-white);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: height 0.5s ease;
+  min-height: 2%;
+}
+
+.scoreWhite {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #333;
+  padding: 2px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.scoreBlack {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 2px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}

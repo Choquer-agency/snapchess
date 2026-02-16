@@ -1,0 +1,79 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.analysisLayout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.boardSection {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.panelSection {
+  flex: 1;
+  min-width: 280px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dividerText {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.newAnalysis {
+  align-self: center;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.newAnalysis:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile stacked layout */
+@media (max-width: 768px) {
+  .analysisLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .panelSection {
+    width: 100%;
+  }
+}

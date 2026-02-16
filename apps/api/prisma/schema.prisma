@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionTier {
+  FREE
+  PRO
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  EXPIRED
+}
+
+enum BillingInterval {
+  MONTHLY
+  ANNUAL
+}
+
+enum AuthProvider {
+  EMAIL
+  GOOGLE
+  APPLE
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  passwordHash String?
+  name         String?
+  authProvider AuthProvider    @default(EMAIL)
+  tier         SubscriptionTier @default(FREE)
+  stripeCustomerId String?    @unique
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  subscription Subscription?
+  dailyUsage   DailyUsage[]
+  analyses     Analysis[]
+  events       Event[]
+}
+
+model Subscription {
+  id                String             @id @default(cuid())
+  userId            String             @unique
+  user              User               @relation(fields: [userId], references: [id])
+  stripeSubscriptionId String?         @unique
+  status            SubscriptionStatus @default(ACTIVE)
+  billingInterval   BillingInterval
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean           @default(false)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model DailyUsage {
+  id     String   @id @default(cuid())
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+  date   DateTime @db.Date
+  count  Int      @default(0)
+
+  @@unique([userId, date])
+  @@index([userId, date])
+}
+
+model Analysis {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  fen         String
+  fenHash     String
+  topMoves    Json     // TopMove[]
+  aiExplanation String?
+  imageUrl    String?
+  cached      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([fenHash])
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  type      String
+  data      Json?
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@index([userId])
+}

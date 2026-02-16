@@ -1,0 +1,244 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.modeToggle {
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 2px;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modeBtn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Play mode */
+.playControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.moveList {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem 0.25rem;
+  padding: 0.375rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.movePair {
+  display: flex;
+  gap: 0.125rem;
+  align-items: center;
+}
+
+.moveNumber {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  min-width: 1.5em;
+  text-align: right;
+}
+
+.moveBtn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.125rem 0.25rem;
+  border-radius: 2px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  transition: background 0.15s;
+}
+
+.moveBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.moveBtn.activeMove {
+  background: rgba(78, 205, 196, 0.3);
+  font-weight: 700;
+}
+
+.navButtons {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.navBtn {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.85rem;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.navBtn:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.actionBtn {
+  flex: 1;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.actionBtnPrimary {
+  flex: 1;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.actionBtnPrimary:hover {
+  opacity: 0.85;
+}
+
+/* Edit mode */
+.editControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.placeModeToggle {
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 2px;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25rem;
+}
+
+.pieceBtn {
+  aspect-ratio: 1;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pieceBtn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pieceBtn.selectedPiece {
+  border-color: var(--accent);
+  background: rgba(78, 205, 196, 0.15);
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.label {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.radioGroup,
+.checkboxGroup {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.radioLabel,
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.analyzeBtn {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.analyzeBtn:hover {
+  opacity: 0.85;
+}
